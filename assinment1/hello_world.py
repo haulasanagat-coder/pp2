@@ -1,2 +1,4 @@
 print("Hello, World!")
 print("Hi")
+s=str(input())
+print("hello",s)
