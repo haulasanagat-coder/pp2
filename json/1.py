@@ -1,21 +1,10 @@
 import json
 
-with open("sample-data.json", "r") as file:
-    data = json.load(file)
+# some JSON:
+x =  '{ "name":"John", "age":30, "city":"New York"}'
 
-print("Interface Status")
-print("=" * 80)
-print(f"{'DN':<50} {'Description':<20} {'Speed':<8} {'MTU':<6}")
-print("-" * 50 + " --------------------  ------  ------")
+# parse x:
+y = json.loads(x)
 
-interfaces = data["imdata"]
-
-for item in interfaces:
-    attributes = item["l1PhysIf"]["attributes"]
-
-    dn = attributes.get("dn", "")
-    description = attributes.get("descr", "")
-    speed = attributes.get("speed", "")
-    mtu = attributes.get("mtu", "")
-
-    print(f"{dn:<50} {description:<20} {speed:<8} {mtu:<6}")
+# the result is a Python dictionary:
+print(y["age"])
