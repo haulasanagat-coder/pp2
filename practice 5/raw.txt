@@ -1,0 +1,12 @@
+Store: Almaty Market
+Date: 2026-03-01
+Time: 14:35
+
+Milk 3.50
+Bread 2.00
+Eggs 5.25
+
+Total: 10.75
+
+Payment: Card
+Cashier:Kaula
