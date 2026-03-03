@@ -1,59 +1,30 @@
 #1
 import re
 
-pattern = r'ab*'
-
-text = input("Enter a string: ")
-
-if re.fullmatch(pattern, text):
-    print("Match found!")
-else:
-    print("No match.")
-
-
+txt = "The rain in Spain"
+x = re.findall("ai", txt)
+print(x)
 #2
 import re
 
-pattern = r'ab{2,3}'
-text = input()
-
-if re.fullmatch(pattern, text):
-    print("Match found")
-else:
-    print("No match")
-
-
+txt = "The rain in Spain"
+x = re.search("Portugal", txt)
+print(x)
 #3
 import re
 
-pattern = r'^[a-z]+(_[a-z]+)+$'
-text = input()
-
-if re.fullmatch(pattern, text):
-    print("Match found")
-else:
-    print("No match")
-
-
+txt = "The rain in Spain"
+x = re.sub("\s", "9", txt)
+print(x)
 #4
 import re
 
-pattern = r'^[A-Z][a-z]+$'
-text = input()
-
-if re.fullmatch(pattern, text):
-    print("Match found")
-else:
-    print("No match")
-
-
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.span())
 #5
 import re
 
-pattern = r'^a.*b$'
-text = input()
-
-if re.fullmatch(pattern, text):
-    print("Match found")
-else:
-    print("No match")
+txt = "The rain in Spain"
+x = re.search(r"\bS\w+", txt)
+print(x.group())
