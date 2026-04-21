@@ -1,15 +1,14 @@
 import pygame
 import random
 
-# 初始化
+# initialize
 pygame.init()
 
-# 参数
 WIDTH, HEIGHT = 600, 400
 BLOCK = 20
 FPS = 5
 
-# 颜色
+# colors
 BLACK = (0, 0, 0)
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
@@ -24,17 +23,19 @@ font = pygame.font.SysFont(None, 30)
 
 class Snake:
     def __init__(self):
+        #Snake body
         self.body = [[100, 100]]
         self.dx = BLOCK
         self.dy = 0
         self.grow = False
 
     def move(self):
+        # move function
         head = self.body[-1][:]
         head[0] += self.dx
         head[1] += self.dy
         self.body.append(head)
-
+        # Growing
         if not self.grow:
             self.body.pop(0)
         else:
@@ -45,7 +46,7 @@ class Snake:
             pygame.draw.rect(screen, GREEN, (*block, BLOCK, BLOCK))
 
     def change_direction(self, dx, dy):
-        # 防止反向直接撞死
+        # Self collision
         if (dx, dy) != (-self.dx, -self.dy):
             self.dx = dx
             self.dy = dy
