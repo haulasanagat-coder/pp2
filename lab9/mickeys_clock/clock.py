@@ -4,7 +4,7 @@ from datetime import datetime
 class MickeyClock:
     def __init__(self):
         pygame.init()
-        self.width, self.height = 600, 550
+        self.width, self.height = 600, 500
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Mickey's Clock")
 
