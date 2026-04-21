@@ -102,25 +102,26 @@ def main():
 
         head = snake.body[-1]
 
-        # 撞墙
+        # collision
         if (
             head[0] < 0 or head[0] >= WIDTH or
             head[1] < 0 or head[1] >= HEIGHT
         ):
             break
 
-        # 撞自己
+        # self collision
         if snake.collide_self():
             break
 
-        # 吃食物
+        # eat food
         if head == food.position:
             snake.grow = True
             food.position = food.random_position()
-            speed += 0.5  # 越吃越快🔥
+            speed += 0.3  # faster
 
         snake.draw()
         food.draw()
+        #Drawing score
         draw_score(len(snake.body) - 1)
 
         pygame.display.update()
