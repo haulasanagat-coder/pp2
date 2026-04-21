@@ -1,35 +1,35 @@
 import pygame
 from player import MusicPlayer
 
-# 初始化
+# initialize
 pygame.init()
 screen = pygame.display.set_mode((500, 200))
 pygame.display.set_caption("Music Player")
 
-# 颜色
+# color
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 GRAY = (120, 120, 120)
 
-# 字体
+# font
 font = pygame.font.Font(None, 32)
 
-# 创建播放器
+# Music player object
 player = MusicPlayer()
 
 running = True
 while running:
     screen.fill(BLACK)
 
-    # 显示当前歌曲
+    # Show current song
     song_name = player.get_song()
     screen.blit(font.render(f"Now Playing: {song_name}", True, WHITE), (30, 40))
 
-    # 按键提示
+    # Controls text
     tips = "P=Play | S=Stop | N=Next | B=Back | Q=Quit"
     screen.blit(font.render(tips, True, GRAY), (30, 120))
 
-    # 事件处理
+    # Keyboard control system
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -46,7 +46,7 @@ while running:
             elif event.key == pygame.K_q:
                 running = False
 
-    # 自动播放下一首
+    # Auto-next song system
     if player.playing and not pygame.mixer.music.get_busy() and player.playlist:
         player.next()
 
